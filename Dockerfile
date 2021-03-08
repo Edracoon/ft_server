@@ -14,13 +14,18 @@ RUN apt-get -y install nginx \
 						php7.3-opcache \
 						php7.3-readline \
 						mariadb-server \
-						mariadb-client
+						mariadb-client \
+						php-json \
+						php-mbstring
 
 COPY srcs/launch.sh ./
 COPY srcs/default ./
-COPY srcs/index.php ./
+COPY srcs/config.inc.php ./
+COPY srcs/wp-config.php ./
 
-# NGINX CONFIG
+#.SH
 CMD bash launch.sh
 
+# Ouverture du port 80 (default) et du port 443 pour le SSL : HTTPS
 EXPOSE 80
+EXPOSE 443
