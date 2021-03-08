@@ -31,14 +31,14 @@ openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out /etc/nginx/ssl/
 
 	# config mysql pour phpmyadmin
 	# on echo dans le shell mysql car on peut pas faire les commandes en direct dans le terminal
-	echo "GRANT ALL PRIVILEGES ON *.* TO 'epfennig'@'localhost' IDENTIFIED BY 'mdp'" | mysql -u root
+	echo "GRANT ALL PRIVILEGES ON *.* TO 'epfennig'@'epfennigserv' IDENTIFIED BY 'mdp'" | mysql -u root
 	echo "FLUSH PRIVILEGES;" | mysql -u root
 
 # Partie de configuration et d'installation de WordPress et sa base de donnée
 	# creation de la base de donnée
 	echo "CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;" | mysql -u root
 	# on donne les droits à wordpress pour acceder à la base de donnée mysql
-	echo "GRANT ALL ON wordpress.* TO 'epfennig'@'localhost' IDENTIFIED BY 'mdp';" | mysql -u root
+	echo "GRANT ALL ON wordpress.* TO 'epfennig'@'epfennigserv' IDENTIFIED BY 'mdp';" | mysql -u root
 	echo "FLUSH PRIVILEGES;" | mysql -u root
 	# installation de wordpress
 	wget https://wordpress.org/latest.tar.gz
