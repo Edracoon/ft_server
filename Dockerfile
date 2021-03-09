@@ -4,19 +4,24 @@ RUN apt update -y
 RUN apt-get -y install wget curl
 RUN apt-get -y install nginx \
 						openssl \
-						php7.3 \
-						php7.3-fpm \
-						php7.3-mysql \
+						php \
+						php-fpm \
+						php-mysql \
 						php-common \
-						php7.3-cli \
-						php7.3-common \
-						php7.3-json \
-						php7.3-opcache \
-						php7.3-readline \
+						php-cli \
+						php-json \
+						php-opcache \
+						php-readline \
 						mariadb-server \
 						mariadb-client \
-						php-json \
-						php-mbstring
+						php-mbstring \
+						php-zip \
+						php-gd \
+						php-curl \
+						php-intl \
+						php-soap \
+						php-xml \
+						php-xmlrpc
 
 COPY srcs/launch.sh ./
 COPY srcs/default ./

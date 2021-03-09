@@ -29,7 +29,7 @@ define( 'DB_USER', 'epfennig' );
 define( 'DB_PASSWORD', 'mdp' );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'epfennigserv' );
+define( 'DB_HOST', 'localhost' );
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );

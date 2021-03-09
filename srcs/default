@@ -16,17 +16,21 @@
 # Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
 ##
 
-# Default server configuration
-#
+# Redirection de HTTP vers HTTPS AUTOMATIQUEMENT
 server {
 		listen 80;
 		listen [::]:80;
+		server_name _;
+		return 301 https://$host$request_uri;
+}
 
+# Default server configuration
+#
+server {
 		# SSL configuration
 		#
 		listen 443 ssl;
 		listen [::]:443 ssl;
-		#
 		# Note: You should disable gzip for SSL traffic.
 		# See: https://bugs.debian.org/773332
 		#
@@ -40,7 +44,7 @@ server {
 
 		ssl_certificate /etc/nginx/ssl/localhost.pem;
 		ssl_certificate_key /etc/nginx/ssl/localhost.key;
-		root /var/www/epfennigserv;
+		root /var/www/localhost;
 
 		# Add index.php to the list if you are using PHP
 		index index.php index.html index.htm index.nginx-debian.html;
